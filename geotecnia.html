@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geotecnia · INGEOTEEK · Conocemos el terreno para construir con seguridad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0f14;
+            color: #e8edf2;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --naranja: #F28C28;
+            --azul-oscuro: #061f33;
+            --gris-claro: #b8c4d0;
+            --texto-claro: #d0d9e0;
+        }
+
+        /* ─── NAVBAR ─── */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            background: rgba(10, 15, 20, 0.92);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: #fff;
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--naranja);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-weight: 500;
+            color: var(--gris-claro);
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gris-claro);
+            transition: color 0.25s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: var(--naranja);
+        }
+        .nav-cta {
+            background: var(--naranja);
+            color: #0a0f14 !important;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            transition: all 0.25s;
+            box-shadow: 0 4px 20px rgba(242, 140, 40, 0.25);
+        }
+        .nav-cta:hover {
+            background: #e07d1a !important;
+            transform: translateY(-2px);
+        }
+
+        /* ─── HERO ─── */
+        .hero-geo {
+            position: relative;
+            padding: 60px 0 50px;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 30% 50%, #0f1a26, #080c12);
+        }
+
+        .hero-geo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" opacity="0.03"><rect width="400" height="400" fill="none"/><circle cx="100" cy="100" r="80" fill="none" stroke="%23ffffff" stroke-width="0.5"/><circle cx="300" cy="250" r="120" fill="none" stroke="%23ffffff" stroke-width="0.5"/><circle cx="200" cy="350" r="60" fill="none" stroke="%23ffffff" stroke-width="0.5"/></svg>');
+            background-size: 400px;
+            pointer-events: none;
+        }
+
+        .hero-geo .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-geo-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .hero-geo-badge {
+            color: var(--naranja);
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: rgba(242, 140, 40, 0.08);
+            padding: 6px 18px;
+            border-radius: 40px;
+            display: inline-block;
+            width: fit-content;
+            border: 1px solid rgba(242, 140, 40, 0.1);
+        }
+
+        .hero-geo-content h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            color: #fff;
+        }
+        .hero-geo-content h1 .highlight {
+            background: linear-gradient(135deg, var(--naranja), #f5a623);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-geo-content .subtitle {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gris-claro);
+            margin-top: -4px;
+        }
+
+        .hero-geo-content p {
+            font-size: 1.05rem;
+            color: var(--texto-claro);
+            max-width: 480px;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .hero-geo-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .btn-primary {
+            background: var(--naranja);
+            color: #0a0f14;
+            padding: 16px 42px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 30px -6px rgba(242, 140, 40, 0.3);
+        }
+        .btn-primary:hover {
+            background: #e07d1a;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: #fff;
+            padding: 16px 42px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 1.5px solid rgba(255,255,255,0.15);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-outline-light:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--naranja);
+            transform: translateY(-3px);
+        }
+
+        .hero-geo-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            background: #0a121c;
+            border: 1px solid rgba(255,255,255,0.04);
+            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+        }
+        .hero-geo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ─── INTRO: NUEVO DISEÑO EDITORIAL ─── */
+        .intro-geo {
+            padding: 60px 0 50px;
+            background: #080c12;
+        }
+
+        .intro-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+        }
+        .intro-text h2 span {
+            color: var(--naranja);
+        }
+        .intro-text p {
+            color: var(--texto-claro);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 16px;
+        }
+
+        .intro-image-large {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 380px;
+            background: #0a121c;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .intro-image-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .intro-labels {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .intro-label {
+            background: rgba(10, 15, 20, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.06);
+            letter-spacing: 0.5px;
+        }
+        .intro-label.naranja {
+            background: rgba(242, 140, 40, 0.2);
+            border-color: rgba(242, 140, 40, 0.15);
+            color: var(--naranja);
+        }
+
+        /* ─── SERVICIOS: ACORDEÓN / PANELES VERTICALES ─── */
+        .services-geo {
+            padding: 60px 0 70px;
+            background: #0a0f14;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+        .section-title span {
+            color: var(--naranja);
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--texto-claro);
+            max-width: 560px;
+            margin: 0 auto 44px;
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .services-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .service-accordion-item {
+            background: rgba(255,255,255,0.02);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.04);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .service-accordion-item:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(242, 140, 40, 0.1);
+        }
+        .service-accordion-item.active {
+            border-color: rgba(242, 140, 40, 0.15);
+            background: rgba(255,255,255,0.04);
+        }
+
+        .service-accordion-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 24px;
+            transition: all 0.3s;
+        }
+        .service-accordion-header .icon {
+            font-size: 1.4rem;
+            color: var(--naranja);
+            opacity: 0.8;
+            width: 32px;
+        }
+        .service-accordion-header .number {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--naranja);
+            opacity: 0.5;
+            min-width: 28px;
+        }
+        .service-accordion-header h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            flex: 1;
+        }
+        .service-accordion-header .arrow {
+            color: var(--naranja);
+            opacity: 0.5;
+            transition: transform 0.3s;
+        }
+        .service-accordion-item.active .service-accordion-header .arrow {
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+
+        .service-accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 24px;
+        }
+        .service-accordion-item.active .service-accordion-body {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+        .service-accordion-body p {
+            font-size: 0.92rem;
+            color: var(--texto-claro);
+            opacity: 0.75;
+            line-height: 1.7;
+        }
+        .service-accordion-body .link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--naranja);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .service-accordion-body .link:hover {
+            text-decoration: underline;
+        }
+
+        /* ─── PROCESO: TIMELINE CON SCROLL ANIMATION ─── */
+        .process-geo {
+            padding: 60px 0 70px;
+            background: #080c12;
+        }
+
+        .process-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 20px;
+            bottom: 20px;
+            width: 2px;
+            background: rgba(242, 140, 40, 0.1);
+            transition: background 0.8s ease;
+        }
+        .process-timeline.animated::before {
+            background: linear-gradient(180deg, var(--naranja), rgba(242,140,40,0.1));
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 28px;
+            padding: 16px 0;
+            position: relative;
+            opacity: 0.4;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateX(-10px);
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item .step-number {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            background: rgba(242,140,40,0.08);
+            color: var(--naranja);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            border: 1px solid rgba(242,140,40,0.1);
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+        .timeline-item.visible .step-number {
+            background: rgba(242,140,40,0.2);
+            border-color: var(--naranja);
+            box-shadow: 0 0 20px rgba(242,140,40,0.1);
+        }
+
+        .timeline-item .step-content h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .timeline-item .step-content p {
+            font-size: 0.92rem;
+            color: var(--texto-claro);
+            opacity: 0.7;
+            max-width: 480px;
+        }
+
+        /* ─── APLICACIONES: TARJETAS HORIZONTALES ─── */
+        .applications-geo {
+            padding: 60px 0 70px;
+            background: #0a0f14;
+        }
+
+        .apps-horizontal {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .app-h-item {
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            padding: 24px 20px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .app-h-item:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(242,140,40,0.08);
+            transform: translateY(-4px);
+        }
+        .app-h-item i {
+            font-size: 2.2rem;
+            color: var(--naranja);
+            opacity: 0.7;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .app-h-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .app-h-item p {
+            font-size: 0.8rem;
+            color: var(--texto-claro);
+            opacity: 0.5;
+        }
+
+        /* ─── PROYECTOS: CASOS DE ESTUDIO ─── */
+        .projects-geo {
+            padding: 60px 0 70px;
+            background: #080c12;
+        }
+
+        .projects-grid-cases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .project-case {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 320px;
+            background: #0a121c;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.4s ease;
+        }
+        .project-case:hover {
+            transform: translateY(-6px);
+            border-color: rgba(242,140,40,0.1);
+            box-shadow: 0 20px 40px -16px rgba(0,0,0,0.4);
+        }
+        .project-case .case-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .project-case:hover .case-image {
+            transform: scale(1.05);
+        }
+
+        .project-case .case-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 24px 24px;
+            background: linear-gradient(0deg, rgba(8,12,18,0.95) 0%, transparent 100%);
+        }
+        .project-case .case-overlay .tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--naranja);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            opacity: 0.8;
+        }
+        .project-case .case-overlay h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 4px 0 2px;
+        }
+        .project-case .case-overlay .location {
+            font-size: 0.8rem;
+            color: var(--texto-claro);
+            opacity: 0.5;
+        }
+
+        .project-case .case-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(8,12,18,0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            text-align: center;
+        }
+        .project-case:hover .case-hover {
+            opacity: 1;
+        }
+        .project-case .case-hover p {
+            color: var(--texto-claro);
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+        .project-case .case-hover .link {
+            color: var(--naranja);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .project-case .case-hover .link:hover {
+            gap: 14px;
+        }
+
+        .projects-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ─── POR QUÉ: DISEÑO BENTO ASIMÉTRICO ─── */
+        .why-geo {
+            padding: 60px 0 70px;
+            background: #0a0f14;
+        }
+
+        .why-bento {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .why-bento-item {
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            padding: 28px 24px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.3s;
+        }
+        .why-bento-item:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(242,140,40,0.06);
+        }
+        .why-bento-item .icon {
+            font-size: 1.8rem;
+            color: var(--naranja);
+            opacity: 0.8;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .why-bento-item h4 {
+            font-weight: 700;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .why-bento-item p {
+            font-size: 0.9rem;
+            color: var(--texto-claro);
+            opacity: 0.7;
+        }
+
+        .why-bento-item.large {
+            grid-row: span 2;
+            grid-column: span 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .why-bento-item.large .icon {
+            font-size: 2.4rem;
+        }
+        .why-bento-item.large h4 {
+            font-size: 1.3rem;
+        }
+
+        /* ─── QUE ENTREGAMOS (NUEVA SECCIÓN) ─── */
+        .deliverables-geo {
+            padding: 60px 0 70px;
+            background: #080c12;
+        }
+
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .deliverable-item {
+            background: rgba(255,255,255,0.02);
+            border-radius: 14px;
+            padding: 20px 22px;
+            border: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.3s;
+        }
+        .deliverable-item:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(242,140,40,0.06);
+        }
+        .deliverable-item i {
+            color: var(--naranja);
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+        .deliverable-item span {
+            font-size: 0.92rem;
+            color: var(--texto-claro);
+            opacity: 0.8;
+        }
+
+        /* ─── TECNOLOGÍA Y EQUIPO ─── */
+        .tech-geo {
+            padding: 60px 0 70px;
+            background: #0a0f14;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .tech-item {
+            text-align: center;
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            padding: 28px 16px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.3s;
+        }
+        .tech-item:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(242,140,40,0.06);
+            transform: translateY(-4px);
+        }
+        .tech-item i {
+            font-size: 2.2rem;
+            color: var(--naranja);
+            opacity: 0.6;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .tech-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .tech-item p {
+            font-size: 0.8rem;
+            color: var(--texto-claro);
+            opacity: 0.5;
+        }
+
+        /* ─── CTA: CON FOTO DE FONDO ─── */
+        .cta-geo {
+            position: relative;
+            padding: 70px 48px;
+            text-align: center;
+            overflow: hidden;
+            background: #080c12;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .cta-geo .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://via.placeholder.com/1920x600/0a121c/FFFFFF?text=Terreno') center/cover;
+            opacity: 0.08;
+            z-index: 0;
+        }
+        .cta-geo .container {
+            position: relative;
+            z-index: 1;
+        }
+        .cta-geo h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+        .cta-geo h2 span {
+            color: var(--naranja);
+        }
+        .cta-geo p {
+            color: var(--texto-claro);
+            font-size: 1.05rem;
+            margin: 14px 0 30px;
+            opacity: 0.7;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-geo .btn-primary {
+            font-size: 1.05rem;
+            padding: 18px 50px;
+        }
+        .cta-geo .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 24px;
+        }
+        .cta-geo .contact-links a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            transition: color 0.25s;
+        }
+        .cta-geo .contact-links a:hover {
+            color: var(--naranja);
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            background: #080c12;
+            padding: 48px 48px 32px;
+            color: rgba(255,255,255,0.5);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .footer-brand h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .footer-brand h3 span {
+            color: var(--naranja);
+        }
+        .footer-brand p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 280px;
+            opacity: 0.6;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: var(--naranja);
+        }
+        .footer-col .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+            padding: 4px 0;
+        }
+        .footer-col .contact-item i {
+            color: var(--naranja);
+            width: 18px;
+            opacity: 0.7;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.85rem;
+        }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.3);
+            text-decoration: none;
+            margin-left: 24px;
+        }
+        .footer-bottom a:hover {
+            color: var(--naranja);
+        }
+
+        /* ─── FLOATING BUTTONS ─── */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 999;
+        }
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+        .floating-btn.whatsapp {
+            background: #25D366;
+        }
+        .floating-btn.chatbot {
+            background: #0B3A63;
+        }
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        .floating-btn .tooltip {
+            position: absolute;
+            right: 72px;
+            background: #0a0f14;
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .floating-btn:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1024px) {
+            .hero-geo .container { flex-direction: column; gap: 30px; }
+            .hero-geo-content h1 { font-size: 3rem; }
+            .hero-geo-image { height: 280px; width: 100%; }
+            .intro-wrapper { grid-template-columns: 1fr; gap: 30px; }
+            .intro-image-large { height: 260px; }
+            .apps-horizontal { grid-template-columns: 1fr 1fr; }
+            .projects-grid-cases { grid-template-columns: 1fr 1fr; }
+            .why-bento { grid-template-columns: 1fr 1fr; }
+            .why-bento-item.large { grid-row: auto; grid-column: span 1; }
+            .deliverables-grid { grid-template-columns: 1fr 1fr; }
+            .tech-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .navbar { flex-direction: column; gap: 14px; }
+            .nav-links { gap: 16px; flex-wrap: wrap; justify-content: center; font-size: 0.85rem; }
+            .hero-geo-content h1 { font-size: 2.4rem; }
+            .hero-geo-content .subtitle { font-size: 1.1rem; }
+            .apps-horizontal { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .projects-grid-cases { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .project-case { height: 280px; }
+            .why-bento { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .deliverables-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .tech-grid { grid-template-columns: 1fr 1fr; max-width: 420px; margin: 0 auto; }
+            .cta-geo { padding: 40px 20px; }
+            .cta-geo h2 { font-size: 1.8rem; }
+            .hero-geo-buttons .btn-primary,
+            .hero-geo-buttons .btn-outline-light { width: 100%; justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer { padding: 32px 20px 24px; }
+            .cta-geo .contact-links { flex-direction: column; align-items: center; gap: 12px; }
+            .floating-buttons { bottom: 20px; right: 20px; gap: 12px; }
+            .floating-btn { width: 52px; height: 52px; font-size: 1.6rem; }
+            .floating-btn .tooltip { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-geo-content h1 { font-size: 2rem; }
+            .service-accordion-header { padding: 14px 16px; flex-wrap: wrap; }
+            .service-accordion-header h3 { font-size: 0.95rem; }
+            .service-accordion-body { padding: 0 16px; }
+            .service-accordion-item.active .service-accordion-body { padding: 0 16px 16px; }
+            .intro-image-large { height: 200px; }
+            .tech-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- NAV -->
+        <nav class="navbar">
+            <a href="index.html" class="logo">INGEO<span>TEEK</span></a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="#intro">Geotecnia</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contacto" class="nav-cta"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Contacto</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-geo" id="inicio">
+        <div class="container">
+            <div class="hero-geo-content">
+                <span class="hero-geo-badge"><i class="fas fa-mountain" style="margin-right:8px;"></i> Geotecnia</span>
+                <h1>Conocemos el <span class="highlight">terreno</span></h1>
+                <div class="subtitle">para construir con seguridad.</div>
+                <p>Estudios y soluciones geotécnicas para proyectos de infraestructura, edificación y obra civil.</p>
+                <div class="hero-geo-buttons">
+                    <a href="#contacto" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar cotización</a>
+                    <a href="#proyectos" class="btn-outline-light"><i class="fas fa-arrow-right"></i> Ver proyectos</a>
+                </div>
+            </div>
+            <div class="hero-geo-image">
+                <!-- 👇 REEMPLAZA src CON TU IMAGEN DE PERFORACIÓN GEOTÉCNICA -->
+                <img src="per.jpg" alt="Perforación geotécnica">
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO: NUEVO DISEÑO EDITORIAL -->
+    <section class="intro-geo" id="intro">
+        <div class="container">
+            <div class="intro-wrapper">
+                <div class="intro-text">
+                    <h2>Geotecnia para <span>tomar mejores decisiones</span></h2>
+                    <p>Antes de construir, es necesario conocer las condiciones del terreno. En INGEOTEEK realizamos estudios y análisis geotécnicos que permiten comprender las características del suelo.</p>
+                    <p>Nuestro enfoque combina exploración de campo, ensayos de laboratorio e interpretación técnica para proporcionar información confiable que respalde el diseño de cimentaciones y obras civiles.</p>
+                </div>
+                <div class="intro-image-large">
+                    <!-- 👇 REEMPLAZA src CON TU IMAGEN DE EXPLORACIÓN DE CAMPO -->
+                    <img src="expo.jpg" alt="Exploración de campo">
+                    <div class="intro-labels">
+                        <span class="intro-label naranja">Exploración</span>
+                        <span class="intro-label">Muestreo</span>
+                        <span class="intro-label">Análisis</span>
+                        <span class="intro-label">Interpretación</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS: ACORDEÓN -->
+    <section class="services-geo" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros <span>servicios de Geotecnia</span></h2>
+            <p class="section-sub">Soluciones técnicas especializadas para cada etapa del proyecto.</p>
+            <div class="services-accordion">
+                <div class="service-accordion-item active">
+                    <div class="service-accordion-header">
+                        <span class="icon"><i class="fas fa-ruler"></i></span>
+                        <span class="number">01</span>
+                        <h3>Exploración geotécnica</h3>
+                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="service-accordion-body">
+                        <p>Investigación de las condiciones del subsuelo mediante técnicas de exploración como sondeos, perforaciones y muestreo inalterado.</p>
+                        <a href="#" class="link">Conocer más →</a>
+                    </div>
+                </div>
+                <div class="service-accordion-item">
+                    <div class="service-accordion-header">
+                        <span class="icon"><i class="fas fa-flask"></i></span>
+                        <span class="number">02</span>
+                        <h3>Mecánica de suelos</h3>
+                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="service-accordion-body">
+                        <p>Caracterización de las propiedades físicas y mecánicas del suelo mediante ensayos de laboratorio especializados.</p>
+                        <a href="#" class="link">Conocer más →</a>
+                    </div>
+                </div>
+                <div class="service-accordion-item">
+                    <div class="service-accordion-header">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="number">03</span>
+                        <h3>Estudios geotécnicos</h3>
+                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="service-accordion-body">
+                        <p>Obtención y análisis de información para apoyar el diseño de proyectos, incluyendo perfiles estratigráficos y parámetros de diseño.</p>
+                        <a href="#" class="link">Conocer más →</a>
+                    </div>
+                </div>
+                <div class="service-accordion-item">
+                    <div class="service-accordion-header">
+                        <span class="icon"><i class="fas fa-weight-hanging"></i></span>
+                        <span class="number">04</span>
+                        <h3>Capacidad de carga</h3>
+                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="service-accordion-body">
+                        <p>Evaluación del comportamiento del terreno frente a las cargas previstas, determinando la capacidad admisible del suelo.</p>
+                        <a href="#" class="link">Conocer más →</a>
+                    </div>
+                </div>
+                <div class="service-accordion-item">
+                    <div class="service-accordion-header">
+                        <span class="icon"><i class="fas fa-building"></i></span>
+                        <span class="number">05</span>
+                        <h3>Cimentaciones</h3>
+                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="service-accordion-body">
+                        <p>Información técnica para apoyar la selección y diseño de soluciones de cimentación, incluyendo recomendaciones específicas.</p>
+                        <a href="#" class="link">Conocer más →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO: TIMELINE CON SCROLL -->
+    <section class="process-geo">
+        <div class="container">
+            <h2 class="section-title">Cómo desarrollamos un <span>estudio geotécnico</span></h2>
+            <p class="section-sub">Un proceso metódico para garantizar resultados confiables.</p>
+            <div class="process-timeline" id="processTimeline">
+                <div class="timeline-item visible">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h4>Planeación</h4>
+                        <p>Definimos el alcance y requerimientos del proyecto.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h4>Exploración</h4>
+                        <p>Realizamos la investigación de campo con técnicas especializadas.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h4>Ensayos y análisis</h4>
+                        <p>Procesamos la información obtenida en laboratorio y campo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h4>Interpretación</h4>
+                        <p>Analizamos las condiciones del terreno y su comportamiento.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h4>Resultados</h4>
+                        <p>Entregamos la información técnica correspondiente al proyecto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APLICACIONES: TARJETAS HORIZONTALES -->
+    <section class="applications-geo">
+        <div class="container">
+            <h2 class="section-title">Soluciones para <span>diferentes tipos de proyecto</span></h2>
+            <p class="section-sub">Nuestros servicios se adaptan a las necesidades de cada sector.</p>
+            <div class="apps-horizontal">
+                <div class="app-h-item">
+                    <i class="fas fa-industry"></i>
+                    <h4>Parques industriales</h4>
+                    <p>Estudios de suelo para naves industriales</p>
+                </div>
+                <div class="app-h-item">
+                    <i class="fas fa-building"></i>
+                    <h4>Edificaciones</h4>
+                    <p>Análisis para edificios y estructuras</p>
+                </div>
+                <div class="app-h-item">
+                    <i class="fas fa-road"></i>
+                    <h4>Infraestructura vial</h4>
+                    <p>Estudios para carreteras y puentes</p>
+                </div>
+                <div class="app-h-item">
+                    <i class="fas fa-hard-hat"></i>
+                    <h4>Obra civil</h4>
+                    <p>Evaluación para proyectos de gran escala</p>
+                </div>
+                <div class="app-h-item">
+                    <i class="fas fa-city"></i>
+                    <h4>Urbanización</h4>
+                    <p>Análisis para desarrollos urbanos</p>
+                </div>
+                <div class="app-h-item">
+                    <i class="fas fa-satellite-dish"></i>
+                    <h4>Telecomunicaciones</h4>
+                    <p>Estudios para infraestructura de telecom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYECTOS: CASOS DE ESTUDIO -->
+    <section class="projects-geo" id="proyectos">
+        <div class="container">
+            <h2 class="section-title">Proyectos de <span>Geotecnia</span></h2>
+            <p class="section-sub">Conoce algunos de los proyectos que hemos desarrollado.</p>
+            <div class="projects-grid-cases">
+                <div class="project-case">
+                    <img class="case-image" src="2C.jpg" alt="Proyecto Geotecnia 1">
+                    <div class="case-overlay">
+                        <div class="tag">Estudio geotécnico</div>
+                        <h4>Parque Industrial - Fase 2</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt" style="color:var(--naranja);"></i> Hidalgo, México</div>
+                    </div>
+                    <div class="case-hover">
+                        <p>Alcance: exploración + análisis + recomendaciones</p>
+                        <a href="#" class="link">Ver caso de estudio →</a>
+                    </div>
+                </div>
+                <div class="project-case">
+                    <img class="case-image" src="suelos.jpg" alt="Proyecto Geotecnia 2">
+                    <div class="case-overlay">
+                        <div class="tag">Mecánica de suelos</div>
+                        <h4>Estudio para Centro Comercial</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt" style="color:var(--naranja);"></i> Ciudad de México</div>
+                    </div>
+                    <div class="case-hover">
+                        <p>Alcance: muestreo + ensayos + dictamen</p>
+                        <a href="#" class="link">Ver caso de estudio →</a>
+                    </div>
+                </div>
+                <div class="project-case">
+                    <img class="case-image" src="pu.jpg" alt="Proyecto Geotecnia 3">
+                    <div class="case-overlay">
+                        <div class="tag">Capacidad de carga</div>
+                        <h4>Estudio para Puente Vehicular</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt" style="color:var(--naranja);"></i> Estado de México</div>
+                    </div>
+                    <div class="case-hover">
+                        <p>Alcance: exploración + capacidad de carga + cimentación</p>
+                        <a href="#" class="link">Ver caso de estudio →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-cta">
+                <a href="#" class="btn-outline-light" style="padding:14px 36px;">Ver todos los proyectos <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUÉ: BENTO ASIMÉTRICO -->
+    <section class="why-geo">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom:32px;">¿Por qué <span>INGEOTEEK</span>?</h2>
+            <div class="why-bento">
+                <div class="why-bento-item large">
+                    <span class="icon"><i class="fas fa-medal"></i></span>
+                    <h4>Experiencia</h4>
+                    <p>Amplia trayectoria en proyectos de ingeniería y geotecnia con resultados comprobados.</p>
+                </div>
+                <div class="why-bento-item">
+                    <span class="icon"><i class="fas fa-microscope"></i></span>
+                    <h4>Enfoque técnico</h4>
+                    <p>Análisis orientado a las necesidades específicas de cada proyecto.</p>
+                </div>
+                <div class="why-bento-item">
+                    <span class="icon"><i class="fas fa-users"></i></span>
+                    <h4>Equipo especializado</h4>
+                    <p>Personal capacitado en todas las áreas de la geotecnia.</p>
+                </div>
+                <div class="why-bento-item">
+                    <span class="icon"><i class="fas fa-cubes"></i></span>
+                    <h4>Soluciones integrales</h4>
+                    <p>Integración con otras áreas de ingeniería para un enfoque completo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUE ENTREGAMOS -->
+    <section class="deliverables-geo">
+        <div class="container">
+            <h2 class="section-title">Qué <span>entregamos</span></h2>
+            <p class="section-sub">Información técnica que respalda la toma de decisiones en tu proyecto.</p>
+            <div class="deliverables-grid">
+                <div class="deliverable-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Informe geotécnico</span>
+                </div>
+                <div class="deliverable-item">
+                    <i class="fas fa-flask"></i>
+                    <span>Resultados de laboratorio</span>
+                </div>
+                <div class="deliverable-item">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Perfiles estratigráficos</span>
+                </div>
+                <div class="deliverable-item">
+                    <i class="fas fa-building"></i>
+                    <span>Recomendaciones de cimentación</span>
+                </div>
+                <div class="deliverable-item">
+                    <i class="fas fa-weight-hanging"></i>
+                    <span>Capacidad de carga</span>
+                </div>
+                <div class="deliverable-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Conclusiones y recomendaciones</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECNOLOGÍA Y EQUIPO -->
+    <section class="tech-geo">
+        <div class="container">
+            <h2 class="section-title">Tecnología y <span>equipo</span></h2>
+            <p class="section-sub">Contamos con herramientas y equipos especializados para cada fase del estudio.</p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fas fa-drill"></i>
+                    <h4>Exploración</h4>
+                    <p>Equipos de perforación y sondeos</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-microscope"></i>
+                    <h4>Laboratorio</h4>
+                    <p>Equipos para ensayos de suelos</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Instrumentación</h4>
+                    <p>Monitoreo y medición en campo</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-laptop"></i>
+                    <h4>Software de análisis</h4>
+                    <p>Herramientas de modelado geotécnico</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA CON FOTO DE FONDO -->
+    <section class="cta-geo" id="contacto">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <h2>¿Necesitas conocer las <span>condiciones de tu terreno</span>?</h2>
+            <p>Cuéntanos sobre tu proyecto y nuestro equipo podrá orientarte sobre la solución geotécnica adecuada.</p>
+            <a href="#" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar estudio geotécnico →</a>
+            <div class="contact-links">
+                <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#"><i class="fas fa-phone"></i> Teléfono</a>
+                <a href="#"><i class="fas fa-envelope"></i> Correo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>INGEO<span>TEEK</span></h3>
+                    <p>Ingeniería que construye, conecta y transforma. Soluciones integrales para los sectores público y privado en todo México.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Servicios</h4>
+                    <a href="#">Geotecnia</a>
+                    <a href="#">Ingeniería y Arquitectura</a>
+                    <a href="#">Telecomunicaciones</a>
+                    <a href="#">Topografía</a>
+                    <a href="#">Construcción</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <a href="#">Nosotros</a>
+                    <a href="#">Proyectos</a>
+                    <a href="#">Experiencia</a>
+                    <a href="#">Contacto</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Tepeapulco, Hidalgo</div>
+                    <div class="contact-item"><i class="fas fa-phone"></i> +52 (771) 123 4567</div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i> contacto@ingeoteek.mx</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 INGEOTEEK · Todos los derechos reservados</span>
+                <div>
+                    <a href="#">Aviso de privacidad</a>
+                    <a href="#">Términos y condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING BUTTONS -->
+    <div class="floating-buttons">
+        <a href="#" class="floating-btn whatsapp" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i>
+            <span class="tooltip">WhatsApp</span>
+        </a>
+        <button class="floating-btn chatbot" onclick="alert('🧠 Chatbot INGEOTEEK: ¡Hola! ¿En qué podemos ayudarte con tu proyecto geotécnico?')">
+            <i class="fas fa-robot"></i>
+            <span class="tooltip">Chatbot</span>
+        </button>
+    </div>
+
+    <script>
+        (function() {
+            console.log('🚀 INGEOTEEK · Geotecnia · Diseño mejorado');
+
+            // ─── ACORDEÓN DE SERVICIOS ───
+            const accordionItems = document.querySelectorAll('.service-accordion-item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.service-accordion-header');
+                header.addEventListener('click', function() {
+                    const isActive = item.classList.contains('active');
+                    accordionItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // ─── TIMELINE CON SCROLL ANIMATION ───
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const timelineContainer = document.getElementById('processTimeline');
+
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        timelineItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('visible');
+                            }, index * 200);
+                        });
+                        timelineContainer.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            if (timelineContainer) {
+                observer.observe(timelineContainer);
+            }
+
+            // Marcar el primer item como visible por defecto
+            if (timelineItems.length > 0) {
+                timelineItems[0].classList.add('visible');
+            }
+
+        })();
+    </script>
+</body>
+</html>
