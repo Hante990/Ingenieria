@@ -638,6 +638,211 @@
             margin: 4px auto 0;
         }
 
+        /* ─── COBERTURA NACIONAL INTERACTIVA ─── */
+        .cobertura-section {
+            padding: 50px 0 60px;
+            background: var(--gris-fondo);
+        }
+
+        .cobertura-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .cobertura-text h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--azul-oscuro);
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .cobertura-text h2 span {
+            color: var(--naranja);
+        }
+        .cobertura-text p {
+            color: var(--gris-texto);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .cobertura-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+            margin-top: 16px;
+        }
+        .cobertura-list-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--gris-texto);
+        }
+        .cobertura-list-item i {
+            color: var(--naranja);
+            font-size: 0.8rem;
+        }
+
+        /* ─── MAPA INTERACTIVO ─── */
+        .mapa-container {
+            background: var(--blanco);
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 8px 28px -12px rgba(11, 58, 99, 0.08);
+            border: 1px solid rgba(11, 58, 99, 0.04);
+            position: relative;
+        }
+
+        .mapa-interactivo {
+            width: 100%;
+            max-width: 560px;
+            margin: 0 auto;
+            min-height: 330px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .mapa-interactivo svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            overflow: visible;
+        }
+
+        .mapa-interactivo .estado {
+            fill: rgba(11, 58, 99, 0.22) !important;
+            stroke: #ffffff !important;
+            stroke-width: 1.35 !important;
+            stroke-linejoin: round;
+            cursor: pointer;
+            transition: fill 0.22s ease, transform 0.22s ease, filter 0.22s ease;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .mapa-interactivo .estado:hover,
+        .mapa-interactivo .estado:focus {
+            fill: rgba(242, 140, 40, 0.78) !important;
+            filter: drop-shadow(0 3px 5px rgba(11, 58, 99, 0.14));
+            outline: none;
+        }
+
+        .mapa-interactivo .estado.active {
+            fill: var(--naranja) !important;
+            stroke: var(--azul-oscuro) !important;
+            stroke-width: 2 !important;
+            filter: drop-shadow(0 4px 7px rgba(242, 140, 40, 0.22));
+        }
+
+        .mapa-tooltip {
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+            background: var(--azul-oscuro);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            line-height: 1.2;
+            box-shadow: 0 8px 24px rgba(8, 43, 73, 0.18);
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(-50%, -115%);
+            transition: opacity 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .mapa-tooltip.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mapa-loading,
+        .mapa-error {
+            width: 100%;
+            min-height: 290px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--gris-texto);
+            font-size: 0.9rem;
+            padding: 30px;
+        }
+
+        .mapa-loading i {
+            color: var(--naranja);
+            margin-right: 8px;
+        }
+
+        .mapa-error {
+            color: #8a4a3b;
+        }
+
+        .mapa-fuente {
+            margin-top: 10px;
+            text-align: center;
+            color: rgba(52, 68, 84, 0.55);
+            font-size: 0.68rem;
+        }
+
+        /* ─── PANEL DE PROYECTOS POR ESTADO ─── */
+        .proyectos-estado {
+            margin-top: 16px;
+            padding: 16px 20px;
+            background: rgba(11, 58, 99, 0.04);
+            border-radius: 16px;
+            border: 1px solid rgba(11, 58, 99, 0.06);
+            min-height: 80px;
+            transition: all 0.4s ease;
+        }
+        .proyectos-estado .titulo {
+            font-weight: 700;
+            color: var(--azul-oscuro);
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+        .proyectos-estado .titulo span {
+            color: var(--naranja);
+        }
+        .proyectos-estado .lista-proyectos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .proyectos-estado .lista-proyectos .proyecto-tag {
+            background: var(--blanco);
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: var(--gris-texto);
+            border: 1px solid rgba(11, 58, 99, 0.06);
+            transition: all 0.2s;
+        }
+        .proyectos-estado .lista-proyectos .proyecto-tag:hover {
+            border-color: var(--naranja);
+            color: var(--naranja);
+        }
+        .proyectos-estado .lista-proyectos .proyecto-tag-link {
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .proyectos-estado .lista-proyectos .proyecto-tag-link::after {
+            content: ' →';
+            font-weight: 700;
+        }
+        .proyectos-estado .sin-proyectos {
+            color: var(--gris-texto);
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
         /* ─── SERVICIOS ─── */
         .services-section {
             padding: 56px 0 64px;
@@ -957,6 +1162,114 @@
             opacity: 1;
         }
 
+
+        /* ─── AJUSTE DE RITMO Y ESPACIADO GENERAL ─── */
+        /* Más ancho útil y menos aire entre bloques, sin cambiar el diseño base */
+        .container {
+            max-width: 1400px;
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+
+        .navbar {
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+
+        .hero {
+            padding-top: 42px;
+            padding-bottom: 34px;
+            gap: 40px;
+            min-height: 480px;
+        }
+
+        .trust-bar {
+            padding: 22px 30px;
+            margin: 4px 0 14px;
+        }
+
+        .trust-bar-bottom {
+            padding: 8px 0 14px;
+            margin-bottom: 0;
+        }
+
+        .about-section {
+            padding: 28px 0 22px;
+        }
+
+        .about-grid {
+            gap: 38px;
+        }
+
+        .process-section {
+            padding: 32px 0 28px;
+        }
+
+        .section-sub {
+            margin-bottom: 28px;
+        }
+
+        .why-section {
+            padding: 32px 0 34px;
+            margin: 8px 0;
+        }
+
+        .why-grid {
+            gap: 24px;
+            padding: 0 28px;
+        }
+
+        .cobertura-section {
+            padding: 34px 0 36px;
+        }
+
+        /* Evita doble margen lateral por el container anidado de Cobertura */
+        .cobertura-section > .container {
+            max-width: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .cobertura-wrapper {
+            gap: 38px;
+        }
+
+        .mapa-container {
+            padding: 14px;
+        }
+
+        .services-section {
+            padding: 38px 0 42px;
+        }
+
+        .services-grid,
+        .projects-grid {
+            gap: 22px;
+        }
+
+        .projects-section {
+            padding: 32px 0 38px;
+        }
+
+        .projects-cta {
+            margin-top: 26px;
+        }
+
+        .cta-final {
+            padding: 42px 36px;
+            margin: 24px 0 20px;
+        }
+
+        .footer {
+            padding: 38px 36px 26px;
+            margin-top: 0;
+        }
+
+        .footer-grid {
+            gap: 30px;
+            margin-bottom: 24px;
+        }
+
         /* ─── RESPONSIVE ─── */
         @media (max-width: 1024px) {
             .hero-content h1 { font-size: 2.6rem; }
@@ -968,6 +1281,7 @@
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .projects-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr 1fr; }
+            .cobertura-wrapper { grid-template-columns: 1fr; gap: 30px; }
         }
 
         @media (max-width: 820px) {
@@ -1004,6 +1318,12 @@
             }
             .hero-tags-container {
                 justify-content: flex-start;
+            }
+            .cobertura-list {
+                grid-template-columns: 1fr;
+            }
+            .mapa-interactivo {
+                max-width: 100%;
             }
         }
 
@@ -1109,6 +1429,19 @@
             .hero-tag {
                 padding: 2px 8px;
             }
+            .cobertura-text h2 { font-size: 1.6rem; }
+            .cobertura-list-item { font-size: 0.85rem; }
+            .mapa-interactivo .estado-label {
+                font-size: 4px;
+            }
+            .proyectos-estado {
+                min-height: 60px;
+                padding: 12px 16px;
+            }
+            .proyectos-estado .lista-proyectos .proyecto-tag {
+                font-size: 0.7rem;
+                padding: 3px 10px;
+            }
         }
 
         @media (max-width: 420px) {
@@ -1126,6 +1459,9 @@
             }
             .step p {
                 max-width: 100%;
+            }
+            .mapa-interactivo .estado-label {
+                display: none;
             }
         }
     </style>
@@ -1170,7 +1506,6 @@
 
             <!-- IMAGEN PROTAGONISTA CON ELEMENTOS FLOTANTES -->
             <div class="hero-image-wrapper">
-                <!-- Plano de fondo (blueprint) -->
                 <div class="blueprint-bg">
                     <svg viewBox="0 0 500 400" preserveAspectRatio="none">
                         <line x1="50" y1="0" x2="50" y2="400" stroke="#0B3A63" stroke-width="0.5"/>
@@ -1187,17 +1522,10 @@
                         <text x="180" y="30" fill="#0B3A63" font-size="8" opacity="0.3">PLANO TÉCNICO · INGEOTEEK</text>
                     </svg>
                 </div>
-
-                <!-- Línea conectora -->
                 <div class="connector-line"></div>
-
-                <!-- Imagen principal -->
                 <div class="hero-image">
-                    <!-- 👇 REEMPLAZA src CON TU IMAGEN DE PROYECTO DESTACADO -->
                     <img id="heroImage" src="torre-telecomunicaciones.jpeg" alt="Proyecto INGEOTEEK">
                 </div>
-
-                <!-- Tarjetas flotantes -->
                 <div class="float-card float-card-1">
                     <div class="number">+15</div>
                     <div class="label">Años de experiencia</div>
@@ -1253,8 +1581,7 @@
                     <a href="#" class="btn-outline" style="padding:12px 32px; font-size:0.9rem;">Conócenos <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="about-image">
-                    <!-- 👇 REEMPLAZA src CON TU IMAGEN DEL EQUIPO -->
-                    <img src="INGEOTEEKK.png" alt="Equipo INGEOTEEK">
+                    <img src="INGEOTEEK1.png" alt="Equipo INGEOTEEK">
                     <div class="badge-overlay">
                         <div class="big-number">15+</div>
                         <div class="small-text">Años de experiencia</div>
@@ -1270,12 +1597,12 @@
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">01</div>
-                    <h4>Consulta</h4>
+                    <h4>Planeación</h4>
                     <p>Entendemos tus necesidades y objetivos.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">02</div>
-                    <h4>Análisis</h4>
+                    <h4>Estudios especializados</h4>
                     <p>Evaluamos las necesidades, condiciones y requerimientos del proyecto.</p>
                 </div>
                 <div class="step">
@@ -1318,15 +1645,69 @@
             </div>
         </section>
 
+        <!-- COBERTURA NACIONAL INTERACTIVA -->
+        <section class="cobertura-section" id="cobertura">
+            <div class="container">
+                <div class="cobertura-wrapper">
+                    <div class="cobertura-text">
+                        <h2>Cobertura <span>Nacional</span></h2>
+                        <p>Nuestra capacidad operativa nos permite desarrollar proyectos en diferentes estados de la República Mexicana.</p>
+                        <p>Hemos participado en proyectos relacionados con:</p>
+                        <div class="cobertura-list">
+                            <div class="cobertura-list-item">
+                                <i class="fas fa-circle"></i> Infraestructura industrial
+                            </div>
+                            <div class="cobertura-list-item">
+                                <i class="fas fa-circle"></i> Telecomunicaciones
+                            </div>
+                            <div class="cobertura-list-item">
+                                <i class="fas fa-circle"></i> Obra pública
+                            </div>
+                            <div class="cobertura-list-item">
+                                <i class="fas fa-circle"></i> Desarrollo residencial
+                            </div>
+                            <div class="cobertura-list-item">
+                                <i class="fas fa-circle"></i> Desarrollo comercial
+                            </div>
+                            <div class="cobertura-list-item">
+                                <i class="fas fa-circle"></i> Ingeniería ferroviaria
+                            </div>
+                            <div class="cobertura-list-item">
+                                <i class="fas fa-circle"></i> Infraestructura energética
+                            </div>
+                            <div class="cobertura-list-item">
+                                <i class="fas fa-circle"></i> Estudios geotécnicos especializados
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mapa-container">
+                        <div class="mapa-interactivo" id="mapaMexico">
+                            <div class="mapa-loading" id="mapaLoading">
+                                <span><i class="fas fa-circle-notch fa-spin"></i> Cargando mapa de México...</span>
+                            </div>
+                            <div class="mapa-tooltip" id="mapaTooltip"></div>
+                        </div>
+                        <div class="mapa-fuente">Mapa vectorial basado en Wikimedia Commons</div>
+
+                        <!-- Panel de proyectos por estado -->
+                        <div class="proyectos-estado" id="panelProyectos">
+                            <div class="titulo">Proyectos en <span id="estadoSeleccionado">México</span></div>
+                            <div class="lista-proyectos" id="listaProyectos">
+                                <span class="proyecto-tag">Selecciona un estado en el mapa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- SERVICIOS -->
         <section class="services-section" id="servicios">
             <h2 class="section-title">Nuestras <span style="color:var(--naranja);">especialidades</span></h2>
             <p class="section-sub">Soluciones técnicas respaldadas por tecnología de vanguardia y un equipo altamente capacitado.</p>
             <div class="services-grid">
-                <!-- Geotecnia -->
                 <div class="service-card">
                     <div class="service-image">
-                        <!-- 👇 REEMPLAZA src CON TU IMAGEN DE GEOTECNIA -->
                         <img src="geotecnia-2.jpg" alt="Geotecnia">
                     </div>
                     <div class="service-body">
@@ -1336,39 +1717,30 @@
                         <a href="geotecnia.html" class="service-link">Ver servicio →</a>
                     </div>
                 </div>
-
-                <!-- Desarrollo Arquitectónico e Ingeniería -->
                 <div class="service-card">
                     <div class="service-image">
-                        <!-- 👇 REEMPLAZA src CON TU IMAGEN DE INGENIERÍA -->
                         <img src="arq.jpg" alt="Ingeniería y Arquitectura">
                     </div>
                     <div class="service-body">
                         <div class="service-number">02</div>
                         <h3>Desarrollo Arquitectónico e Ingeniería</h3>
                         <p>Proyectos ejecutivos, modelado 3D, diseño técnico y dictámenes estructurales.</p>
-                        <a href="#" class="service-link">Ver servicio →</a>
+                        <a href="Ingenieria.html" class="service-link">Ver servicio →</a>
                     </div>
                 </div>
-
-                <!-- Telecomunicaciones -->
                 <div class="service-card">
                     <div class="service-image">
-                        <!-- 👇 REEMPLAZA src CON TU IMAGEN DE TELECOMUNICACIONES -->
                         <img src="torr.jpg" alt="Telecomunicaciones">
                     </div>
                     <div class="service-body">
                         <div class="service-number">03</div>
                         <h3>Telecomunicaciones</h3>
                         <p>Redes de fibra óptica, radiofrecuencia, sitios celulares y soluciones tecnológicas.</p>
-                        <a href="#" class="service-link">Ver servicio →</a>
+                        <a href="telecomunicacion.html" class="service-link">Ver servicio →</a>
                     </div>
                 </div>
-
-                <!-- Topografía -->
                 <div class="service-card">
                     <div class="service-image">
-                        <!-- 👇 REEMPLAZA src CON TU IMAGEN DE TOPOGRAFÍA -->
                         <img src="top.jpg" alt="Topografía">
                     </div>
                     <div class="service-body">
@@ -1378,11 +1750,8 @@
                         <a href="#" class="service-link">Ver servicio →</a>
                     </div>
                 </div>
-
-                <!-- Construcción -->
                 <div class="service-card">
                     <div class="service-image">
-                        <!-- 👇 REEMPLAZA src CON TU IMAGEN DE CONSTRUCCIÓN -->
                         <img src="estructura-scaled.jpg" alt="Construcción">
                     </div>
                     <div class="service-body">
@@ -1400,45 +1769,37 @@
             <h2 class="section-title">Proyectos <span style="color:var(--naranja);">destacados</span></h2>
             <p class="section-sub">Conoce algunos de los proyectos que hemos desarrollado en todo México.</p>
             <div class="projects-grid">
-                <!-- Proyecto 1 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <!-- 👇 REEMPLAZA src CON TU IMAGEN DEL PROYECTO 1 -->
                         <img src="suelos.jpg" alt="Proyecto Geotecnia">
                     </div>
                     <div class="project-body">
                         <div class="project-tag">Geotecnia</div>
                         <h4>Estudio de Suelos - Parque Industrial</h4>
                         <div class="project-location"><i class="fas fa-map-marker-alt" style="color:var(--naranja);"></i> Hidalgo, México</div>
-                        <a href="#" class="project-link">Ver proyecto →</a>
+                        <a href="proyecto.html?id=estudio-suelos-parque-industrial" class="project-link">Ver proyecto →</a>
                     </div>
                 </div>
-
-                <!-- Proyecto 2 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <!-- 👇 REEMPLAZA src CON TU IMAGEN DEL PROYECTO 2 -->
                         <img src="R.jpg" alt="Proyecto Ingeniería">
                     </div>
                     <div class="project-body">
                         <div class="project-tag">Ingeniería</div>
                         <h4>Desarrollo Arquitectónico - Centro Comercial</h4>
                         <div class="project-location"><i class="fas fa-map-marker-alt" style="color:var(--naranja);"></i> Ciudad de México</div>
-                        <a href="#" class="project-link">Ver proyecto →</a>
+                        <a href="proyecto.html?id=desarrollo-arquitectonico-centro-comercial" class="project-link">Ver proyecto →</a>
                     </div>
                 </div>
-
-                <!-- Proyecto 3 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <!-- 👇 REEMPLAZA src CON TU IMAGEN DEL PROYECTO 3 -->
                         <img src="fib.jpg" alt="Proyecto Telecomunicaciones">
                     </div>
                     <div class="project-body">
                         <div class="project-tag">Telecomunicaciones</div>
                         <h4>Red de Fibra Óptica - Zona Metropolitana</h4>
                         <div class="project-location"><i class="fas fa-map-marker-alt" style="color:var(--naranja);"></i> Estado de México</div>
-                        <a href="#" class="project-link">Ver proyecto →</a>
+                        <a href="proyecto.html?id=red-fibra-optica-zona-metropolitana" class="project-link">Ver proyecto →</a>
                     </div>
                 </div>
             </div>
@@ -1505,15 +1866,16 @@
         </button>
     </div>
 
+    <script src="proyectos-data.js"></script>
+
     <script>
         (function() {
-            console.log('🚀 INGEOTEEK · Hero rediseñado');
+            console.log('🚀 INGEOTEEK · Mapa interactivo de México');
 
             // ─── TAGS INTERACTIVOS CON CAMBIO DE IMAGEN ───
             const tags = document.querySelectorAll('.hero-tag');
             const heroImage = document.getElementById('heroImage');
 
-            // Mapeo de tags a imágenes
             const imageMap = {
                 'telecomunicaciones': 'torre-telecomunicaciones.jpeg',
                 'geotecnia': 'geotecnia-2.jpg',
@@ -1524,12 +1886,10 @@
             let autoRotateInterval;
 
             function changeTag(tag) {
-                // Actualizar clases
                 tags.forEach(t => t.classList.remove('active'));
                 const activeTag = document.querySelector(`.hero-tag[data-tag="${tag}"]`);
                 if (activeTag) activeTag.classList.add('active');
 
-                // Cambiar imagen con efecto crossfade
                 if (imageMap[tag]) {
                     heroImage.style.opacity = '0';
                     setTimeout(() => {
@@ -1537,22 +1897,18 @@
                         heroImage.style.opacity = '1';
                     }, 300);
                 }
-
                 currentTag = tag;
             }
 
-            // Click en tags
             tags.forEach(tag => {
                 tag.addEventListener('click', function() {
                     const tagName = this.dataset.tag;
                     changeTag(tagName);
-                    // Reiniciar rotación automática
                     clearInterval(autoRotateInterval);
                     startAutoRotate();
                 });
             });
 
-            // ─── ROTACIÓN AUTOMÁTICA ───
             const tagNames = ['telecomunicaciones', 'geotecnia', 'infraestructura'];
             let index = 0;
 
@@ -1563,10 +1919,237 @@
                 }, 4000);
             }
 
-            // Iniciar rotación después de 3 segundos
             setTimeout(() => {
                 startAutoRotate();
             }, 3000);
+
+            // ─── MAPA INTERACTIVO ───
+            const mapaMexico = document.getElementById('mapaMexico');
+            const mapaTooltip = document.getElementById('mapaTooltip');
+            const mapaLoading = document.getElementById('mapaLoading');
+            const estadoSeleccionado = document.getElementById('estadoSeleccionado');
+            const listaProyectos = document.getElementById('listaProyectos');
+
+            // Base de datos de proyectos por estado
+            const proyectosPorEstado = {
+                'hidalgo': ['Estudio de Suelos - Parque Industrial', 'Exploración Geotécnica - Zona Metropolitana'],
+                'cdmx': ['Desarrollo Arquitectónico - Centro Comercial', 'Red de Fibra Óptica - Zona Metropolitana', 'Estudio de Mecánica de Suelos - Torre Corporativa'],
+                'estado-de-mexico': ['Red de Fibra Óptica - Zona Metropolitana', 'Estudio Geotécnico - Desarrollo Residencial'],
+                'queretaro': ['Estudio de Capacidad de Carga - Parque Tecnológico', 'Infraestructura Vial - Corredor Industrial'],
+                'guanajuato': ['Desarrollo Urbano - Zona Metropolitana', 'Estudio Geotécnico - Centro Logístico'],
+                'jalisco': ['Infraestructura Industrial - Parque Tecnológico', 'Estudio de Suelos - Desarrollo Comercial'],
+                'nuevo-leon': ['Estudio Geotécnico - Nave Industrial', 'Infraestructura Vial - Periférico'],
+                'veracruz': ['Estudio de Mecánica de Suelos - Puerto Industrial', 'Infraestructura Energética - Terminal'],
+                'puebla': ['Desarrollo Arquitectónico - Centro Histórico', 'Estudio Geotécnico - Parque Industrial'],
+                'san-luis-potosi': ['Estudio de Capacidad de Carga - Zona Industrial', 'Infraestructura Urbana'],
+                'sonora': ['Estudio Geotécnico - Desarrollo Minero', 'Infraestructura Energética'],
+                'chihuahua': ['Estudio de Suelos - Parque Industrial', 'Infraestructura Vial'],
+                'coahuila': ['Estudio Geotécnico - Nave Industrial', 'Desarrollo Urbano'],
+                'tamaulipas': ['Infraestructura Portuaria', 'Estudio de Mecánica de Suelos'],
+                'sinaloa': ['Desarrollo Agrícola', 'Estudio Geotécnico - Infraestructura'],
+                'durango': ['Estudio de Suelos - Desarrollo Minero', 'Infraestructura Vial'],
+                'zacatecas': ['Estudio Geotécnico - Zona Industrial', 'Desarrollo Minero'],
+                'aguascalientes': ['Desarrollo Industrial', 'Estudio de Capacidad de Carga'],
+                'nayarit': ['Estudio Geotécnico - Desarrollo Turístico', 'Infraestructura Urbana'],
+                'colima': ['Estudio de Suelos - Desarrollo Portuario', 'Infraestructura Energética'],
+                'michoacan': ['Estudio Geotécnico - Desarrollo Agrícola', 'Infraestructura Vial'],
+                'morelos': ['Desarrollo Urbano - Zona Metropolitana', 'Estudio Geotécnico'],
+                'tlaxcala': ['Estudio de Suelos - Desarrollo Industrial', 'Infraestructura Vial'],
+                'guerrero': ['Estudio Geotécnico - Desarrollo Turístico', 'Infraestructura Portuaria'],
+                'oaxaca': ['Estudio de Mecánica de Suelos', 'Infraestructura Vial'],
+                'chiapas': ['Estudio Geotécnico - Desarrollo Agrícola', 'Infraestructura Energética'],
+                'tabasco': ['Infraestructura Energética', 'Estudio de Suelos'],
+                'campeche': ['Estudio Geotécnico - Desarrollo Portuario', 'Infraestructura'],
+                'yucatan': ['Estudio de Suelos - Desarrollo Turístico', 'Infraestructura Urbana'],
+                'quintana-roo': ['Estudio Geotécnico - Desarrollo Turístico', 'Infraestructura Portuaria'],
+                'baja-california': ['Estudio de Suelos - Desarrollo Industrial', 'Infraestructura Vial']
+            };
+
+            const nombresEstados = {
+                'aguascalientes': 'Aguascalientes',
+                'baja-california': 'Baja California',
+                'baja-california-sur': 'Baja California Sur',
+                'campeche': 'Campeche',
+                'coahuila': 'Coahuila',
+                'colima': 'Colima',
+                'chiapas': 'Chiapas',
+                'chihuahua': 'Chihuahua',
+                'cdmx': 'Ciudad de México',
+                'durango': 'Durango',
+                'guanajuato': 'Guanajuato',
+                'guerrero': 'Guerrero',
+                'hidalgo': 'Hidalgo',
+                'jalisco': 'Jalisco',
+                'estado-de-mexico': 'Estado de México',
+                'michoacan': 'Michoacán',
+                'morelos': 'Morelos',
+                'nayarit': 'Nayarit',
+                'nuevo-leon': 'Nuevo León',
+                'oaxaca': 'Oaxaca',
+                'puebla': 'Puebla',
+                'queretaro': 'Querétaro',
+                'quintana-roo': 'Quintana Roo',
+                'san-luis-potosi': 'San Luis Potosí',
+                'sinaloa': 'Sinaloa',
+                'sonora': 'Sonora',
+                'tabasco': 'Tabasco',
+                'tamaulipas': 'Tamaulipas',
+                'tlaxcala': 'Tlaxcala',
+                'veracruz': 'Veracruz',
+                'yucatan': 'Yucatán',
+                'zacatecas': 'Zacatecas'
+            };
+
+            // IDs del SVG original de Wikimedia -> identificadores usados en tu proyecto
+            const estadoPorPath = {
+                'path7339': 'aguascalientes',
+                'path7285': 'baja-california',
+                'path7319': 'baja-california-sur',
+                'path7383': 'campeche',
+                'path7315': 'coahuila',
+                'path7375': 'colima',
+                'path7397': 'chiapas',
+                'path7297': 'chihuahua',
+                'path7369': 'cdmx',
+                'path7327': 'durango',
+                'path7361': 'guanajuato',
+                'path7393': 'guerrero',
+                'path7365': 'hidalgo',
+                'path7371': 'jalisco',
+                'path7377': 'estado-de-mexico',
+                'path7387': 'michoacan',
+                'path7379': 'morelos',
+                'path7355': 'nayarit',
+                'path7321': 'nuevo-leon',
+                'path7395': 'oaxaca',
+                'path7385': 'puebla',
+                'path7359': 'queretaro',
+                'path7381': 'quintana-roo',
+                'path7347': 'san-luis-potosi',
+                'path7325': 'sinaloa',
+                'path7289': 'sonora',
+                'path7389': 'tabasco',
+                'path7329': 'tamaulipas',
+                'path7367': 'tlaxcala',
+                'path7391': 'veracruz',
+                'path7357': 'yucatan',
+                'path7349': 'zacatecas'
+            };
+
+            let estados = [];
+
+            function mostrarProyectos(estadoId) {
+                estados.forEach(e => e.classList.remove('active'));
+
+                const estadoSeleccionadoElem = estados.find(e => e.dataset.estado === estadoId);
+                if (estadoSeleccionadoElem) estadoSeleccionadoElem.classList.add('active');
+
+                estadoSeleccionado.textContent = nombresEstados[estadoId] || estadoId;
+                const proyectos = proyectosPorEstado[estadoId] || ['No hay proyectos registrados en esta entidad'];
+
+                listaProyectos.innerHTML = '';
+                proyectos.forEach(nombreProyecto => {
+                    // Si el proyecto existe en el catálogo completo, el tag se vuelve enlace.
+                    const proyectoCompleto = window.PROYECTOS
+                        ? Object.values(window.PROYECTOS).find(p => p.titulo === nombreProyecto)
+                        : null;
+
+                    if (proyectoCompleto) {
+                        const link = document.createElement('a');
+                        link.className = 'proyecto-tag proyecto-tag-link';
+                        link.href = `proyecto.html?id=${proyectoCompleto.id}`;
+                        link.textContent = nombreProyecto;
+                        link.setAttribute('aria-label', `Ver proyecto: ${nombreProyecto}`);
+                        listaProyectos.appendChild(link);
+                    } else {
+                        const tag = document.createElement('span');
+                        tag.className = 'proyecto-tag';
+                        tag.textContent = nombreProyecto;
+                        listaProyectos.appendChild(tag);
+                    }
+                });
+            }
+
+            function posicionarTooltip(event) {
+                const rect = mapaMexico.getBoundingClientRect();
+                const x = Math.min(Math.max(event.clientX - rect.left, 75), rect.width - 75);
+                const y = Math.max(event.clientY - rect.top, 45);
+                mapaTooltip.style.left = `${x}px`;
+                mapaTooltip.style.top = `${y}px`;
+            }
+
+            function prepararMapa(svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.setAttribute('viewBox', '0 0 999.73236 679.94141');
+                svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                svg.setAttribute('role', 'img');
+                svg.setAttribute('aria-label', 'Mapa interactivo de los estados de México');
+
+                // Ocultamos numeración y textos originales para mantener el mapa limpio.
+                svg.querySelectorAll('text, tspan').forEach(el => el.remove());
+
+                estados = [];
+                Object.entries(estadoPorPath).forEach(([pathId, estadoId]) => {
+                    const path = svg.querySelector(`#${pathId}`);
+                    if (!path) return;
+
+                    path.classList.add('estado');
+                    path.dataset.estado = estadoId;
+                    path.setAttribute('tabindex', '0');
+                    path.setAttribute('role', 'button');
+                    path.setAttribute('aria-label', nombresEstados[estadoId]);
+                    path.removeAttribute('style');
+                    path.removeAttribute('fill');
+                    estados.push(path);
+
+                    path.addEventListener('mouseenter', (event) => {
+                        mapaTooltip.textContent = nombresEstados[estadoId];
+                        mapaTooltip.classList.add('visible');
+                        posicionarTooltip(event);
+                    });
+
+                    path.addEventListener('mousemove', posicionarTooltip);
+                    path.addEventListener('mouseleave', () => mapaTooltip.classList.remove('visible'));
+
+                    path.addEventListener('click', () => mostrarProyectos(estadoId));
+                    path.addEventListener('keydown', (event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            mostrarProyectos(estadoId);
+                        }
+                    });
+                });
+
+                mapaLoading?.remove();
+                mapaMexico.insertBefore(svg, mapaTooltip);
+                mostrarProyectos('hidalgo');
+            }
+
+            async function cargarMapaMexico() {
+                try {
+                    const respuesta = await fetch('https://upload.wikimedia.org/wikipedia/commons/2/23/Mexico_Map.svg');
+                    if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
+
+                    const svgTexto = await respuesta.text();
+                    const documentoSvg = new DOMParser().parseFromString(svgTexto, 'image/svg+xml');
+                    const svg = documentoSvg.documentElement;
+
+                    if (!svg || svg.nodeName.toLowerCase() !== 'svg') {
+                        throw new Error('El recurso recibido no es un SVG válido');
+                    }
+
+                    prepararMapa(document.importNode(svg, true));
+                } catch (error) {
+                    console.error('No se pudo cargar el mapa de México:', error);
+                    if (mapaLoading) {
+                        mapaLoading.className = 'mapa-error';
+                        mapaLoading.innerHTML = '<span><i class="fas fa-map-marked-alt"></i> No fue posible cargar el mapa. Verifica tu conexión a Internet.</span>';
+                    }
+                }
+            }
+
+            cargarMapaMexico();
 
         })();
     </script>
