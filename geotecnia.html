@@ -404,8 +404,8 @@
             padding: 0 24px;
         }
         .service-accordion-item.active .service-accordion-body {
-            max-height: 300px;
-            padding: 0 24px 20px;
+            max-height: 700px;
+            padding: 0 24px 22px;
         }
         .service-accordion-body p {
             font-size: 0.92rem;
@@ -423,6 +423,43 @@
         }
         .service-accordion-body .link:hover {
             text-decoration: underline;
+        }
+
+
+
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 18px;
+            margin-top: 16px;
+        }
+
+        .service-detail-grid span {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: 0.87rem;
+            color: var(--texto-claro);
+            opacity: 0.82;
+            line-height: 1.5;
+        }
+
+        .service-detail-grid i {
+            color: var(--naranja);
+            font-size: 0.68rem;
+            margin-top: 5px;
+            flex: 0 0 auto;
+        }
+
+        .service-note {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: rgba(242, 140, 40, 0.05);
+            border: 1px solid rgba(242, 140, 40, 0.09);
+            font-size: 0.82rem;
+            color: var(--texto-claro);
+            opacity: 0.72;
         }
 
         /* ─── PROCESO: TIMELINE CON SCROLL ANIMATION ─── */
@@ -1038,6 +1075,7 @@
             .service-accordion-header h3 { font-size: 0.95rem; }
             .service-accordion-body { padding: 0 16px; }
             .service-accordion-item.active .service-accordion-body { padding: 0 16px 16px; }
+            .service-detail-grid { grid-template-columns: 1fr; }
             .intro-image-large { height: 200px; }
             .tech-grid { grid-template-columns: 1fr 1fr; }
         }
@@ -1063,10 +1101,10 @@
     <section class="hero-geo" id="inicio">
         <div class="container">
             <div class="hero-geo-content">
-                <span class="hero-geo-badge"><i class="fas fa-mountain" style="margin-right:8px;"></i> Geotecnia</span>
-                <h1>Conocemos el <span class="highlight">terreno</span></h1>
-                <div class="subtitle">para construir con seguridad.</div>
-                <p>Estudios y soluciones geotécnicas para proyectos de infraestructura, edificación y obra civil.</p>
+                <span class="hero-geo-badge"><i class="fas fa-mountain" style="margin-right:8px;"></i> Ingeniería Geotécnica y Geología</span>
+                <h1>Conocemos el <span class="highlight">subsuelo</span></h1>
+                <div class="subtitle">para diseñar y construir con mayor certeza.</div>
+                <p>Especialistas en caracterización del subsuelo para proyectos de infraestructura, edificación, obra civil y desarrollo territorial.</p>
                 <div class="hero-geo-buttons">
                     <a href="#contacto" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar cotización</a>
                     <a href="#proyectos" class="btn-outline-light"><i class="fas fa-arrow-right"></i> Ver proyectos</a>
@@ -1084,18 +1122,17 @@
         <div class="container">
             <div class="intro-wrapper">
                 <div class="intro-text">
-                    <h2>Geotecnia para <span>tomar mejores decisiones</span></h2>
-                    <p>Antes de construir, es necesario conocer las condiciones del terreno. En INGEOTEEK realizamos estudios y análisis geotécnicos que permiten comprender las características del suelo.</p>
-                    <p>Nuestro enfoque combina exploración de campo, ensayos de laboratorio e interpretación técnica para proporcionar información confiable que respalde el diseño de cimentaciones y obras civiles.</p>
+                    <h2>Ingeniería del terreno para <span>tomar mejores decisiones</span></h2>
+                    <p>En INGEOTEEK integramos geotecnia, geología y geofísica para comprender las condiciones del subsuelo antes, durante y después de una obra.</p>
+                    <p>Nuestro trabajo combina exploración de campo, ensayos especializados, interpretación técnica, instrumentación y supervisión para reducir incertidumbre y respaldar decisiones de diseño, construcción y operación.</p>
                 </div>
                 <div class="intro-image-large">
-                    <!-- 👇 REEMPLAZA src CON TU IMAGEN DE EXPLORACIÓN DE CAMPO -->
-                    <img src="expo.jpg" alt="Exploración de campo">
+                    <img src="expo.jpg" alt="Exploración geotécnica y geológica de campo">
                     <div class="intro-labels">
-                        <span class="intro-label naranja">Exploración</span>
-                        <span class="intro-label">Muestreo</span>
-                        <span class="intro-label">Análisis</span>
-                        <span class="intro-label">Interpretación</span>
+                        <span class="intro-label naranja">Geotecnia</span>
+                        <span class="intro-label">Geología</span>
+                        <span class="intro-label">Geofísica</span>
+                        <span class="intro-label">Instrumentación</span>
                     </div>
                 </div>
             </div>
@@ -1105,69 +1142,108 @@
     <!-- SERVICIOS: ACORDEÓN -->
     <section class="services-geo" id="servicios">
         <div class="container">
-            <h2 class="section-title">Nuestros <span>servicios de Geotecnia</span></h2>
-            <p class="section-sub">Soluciones técnicas especializadas para cada etapa del proyecto.</p>
+            <h2 class="section-title">Servicios de <span>Ingeniería Geotécnica y Geología</span></h2>
+            <p class="section-sub">Agrupamos nuestras capacidades por especialidad para que puedas identificar rápidamente la solución adecuada para tu proyecto.</p>
             <div class="services-accordion">
+
                 <div class="service-accordion-item active">
                     <div class="service-accordion-header">
-                        <span class="icon"><i class="fas fa-ruler"></i></span>
+                        <span class="icon"><i class="fas fa-layer-group"></i></span>
                         <span class="number">01</span>
-                        <h3>Exploración geotécnica</h3>
+                        <h3>Mecánica de suelos y exploración geotécnica</h3>
                         <span class="arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="service-accordion-body">
-                        <p>Investigación de las condiciones del subsuelo mediante técnicas de exploración como sondeos, perforaciones y muestreo inalterado.</p>
-                        <a href="#" class="link">Conocer más →</a>
+                        <p>Caracterizamos las propiedades del suelo y del macizo rocoso mediante exploración de campo y ensayos especializados.</p>
+                        <div class="service-detail-grid">
+                            <span><i class="fas fa-check"></i> Estudios de mecánica de suelos</span>
+                            <span><i class="fas fa-check"></i> Exploración mediante SPT</span>
+                            <span><i class="fas fa-check"></i> Sondeos BHQ y BNQ</span>
+                            <span><i class="fas fa-check"></i> Pozos a cielo abierto</span>
+                            <span><i class="fas fa-check"></i> Ensayos presiométricos</span>
+                            <span><i class="fas fa-check"></i> Análisis de capacidad de carga</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="service-accordion-item">
                     <div class="service-accordion-header">
-                        <span class="icon"><i class="fas fa-flask"></i></span>
+                        <span class="icon"><i class="fas fa-wave-square"></i></span>
                         <span class="number">02</span>
-                        <h3>Mecánica de suelos</h3>
+                        <h3>Geofísica y caracterización del subsuelo</h3>
                         <span class="arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="service-accordion-body">
-                        <p>Caracterización de las propiedades físicas y mecánicas del suelo mediante ensayos de laboratorio especializados.</p>
-                        <a href="#" class="link">Conocer más →</a>
+                        <p>Aplicamos métodos geofísicos para complementar la exploración directa y obtener una visión más amplia de las condiciones del subsuelo.</p>
+                        <div class="service-detail-grid">
+                            <span><i class="fas fa-check"></i> Estudios geofísicos</span>
+                            <span><i class="fas fa-check"></i> MASW</span>
+                            <span><i class="fas fa-check"></i> Métodos sísmicos</span>
+                            <span><i class="fas fa-check"></i> Resistividad eléctrica</span>
+                        </div>
                     </div>
                 </div>
+
+                <div class="service-accordion-item">
+                    <div class="service-accordion-header">
+                        <span class="icon"><i class="fas fa-drafting-compass"></i></span>
+                        <span class="number">03</span>
+                        <h3>Diseño y evaluación geotécnica</h3>
+                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="service-accordion-body">
+                        <p>Transformamos los resultados de campo y laboratorio en criterios de diseño y evaluación para la toma de decisiones del proyecto.</p>
+                        <div class="service-detail-grid">
+                            <span><i class="fas fa-check"></i> Diseño de cimentaciones</span>
+                            <span><i class="fas fa-check"></i> Evaluación de estabilidad de taludes</span>
+                            <span><i class="fas fa-check"></i> Estudios hidrológicos</span>
+                            <span><i class="fas fa-check"></i> Estudios de inundabilidad</span>
+                            <span><i class="fas fa-check"></i> Atlas de riesgo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-accordion-item">
+                    <div class="service-accordion-header">
+                        <span class="icon"><i class="fas fa-mountain"></i></span>
+                        <span class="number">04</span>
+                        <h3>Geología y geomecánica</h3>
+                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="service-accordion-body">
+                        <p>Analizamos la configuración geológica y estructural del sitio para comprender materiales, discontinuidades y condiciones que pueden influir en la obra.</p>
+                        <div class="service-detail-grid">
+                            <span><i class="fas fa-check"></i> Estudios geológicos</span>
+                            <span><i class="fas fa-check"></i> Geología estructural</span>
+                            <span><i class="fas fa-check"></i> Cartografía geológica</span>
+                            <span><i class="fas fa-check"></i> Levantamientos geológicos</span>
+                            <span><i class="fas fa-check"></i> Estaciones geomecánicas</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="service-accordion-item">
                     <div class="service-accordion-header">
                         <span class="icon"><i class="fas fa-chart-line"></i></span>
-                        <span class="number">03</span>
-                        <h3>Estudios geotécnicos</h3>
-                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="service-accordion-body">
-                        <p>Obtención y análisis de información para apoyar el diseño de proyectos, incluyendo perfiles estratigráficos y parámetros de diseño.</p>
-                        <a href="#" class="link">Conocer más →</a>
-                    </div>
-                </div>
-                <div class="service-accordion-item">
-                    <div class="service-accordion-header">
-                        <span class="icon"><i class="fas fa-weight-hanging"></i></span>
-                        <span class="number">04</span>
-                        <h3>Capacidad de carga</h3>
-                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="service-accordion-body">
-                        <p>Evaluación del comportamiento del terreno frente a las cargas previstas, determinando la capacidad admisible del suelo.</p>
-                        <a href="#" class="link">Conocer más →</a>
-                    </div>
-                </div>
-                <div class="service-accordion-item">
-                    <div class="service-accordion-header">
-                        <span class="icon"><i class="fas fa-building"></i></span>
                         <span class="number">05</span>
-                        <h3>Cimentaciones</h3>
+                        <h3>Instrumentación, supervisión y control técnico</h3>
                         <span class="arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="service-accordion-body">
-                        <p>Información técnica para apoyar la selección y diseño de soluciones de cimentación, incluyendo recomendaciones específicas.</p>
-                        <a href="#" class="link">Conocer más →</a>
+                        <p>Damos seguimiento al comportamiento del terreno y al cumplimiento técnico durante la ejecución de los trabajos.</p>
+                        <div class="service-detail-grid">
+                            <span><i class="fas fa-check"></i> Instrumentación geotécnica</span>
+                            <span><i class="fas fa-check"></i> Instalación de piezómetros</span>
+                            <span><i class="fas fa-check"></i> Tubos de observación</span>
+                            <span><i class="fas fa-check"></i> Supervisión geotécnica</span>
+                            <span><i class="fas fa-check"></i> Control de calidad</span>
+                            <span><i class="fas fa-check"></i> Dictámenes técnicos</span>
+                            <span><i class="fas fa-check"></i> Informes especializados</span>
+                        </div>
+                        <div class="service-note">El alcance de cada estudio se define de acuerdo con las condiciones del sitio, el tipo de estructura y los requerimientos particulares del proyecto.</div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1175,8 +1251,8 @@
     <!-- PROCESO: TIMELINE CON SCROLL -->
     <section class="process-geo">
         <div class="container">
-            <h2 class="section-title">Cómo desarrollamos un <span>estudio geotécnico</span></h2>
-            <p class="section-sub">Un proceso metódico para garantizar resultados confiables.</p>
+            <h2 class="section-title">Cómo desarrollamos un <span>estudio especializado</span></h2>
+            <p class="section-sub">Un proceso técnico que integra información de campo, análisis e interpretación.</p>
             <div class="process-timeline" id="processTimeline">
                 <div class="timeline-item visible">
                     <div class="step-number">01</div>
@@ -1339,32 +1415,17 @@
     <section class="deliverables-geo">
         <div class="container">
             <h2 class="section-title">Qué <span>entregamos</span></h2>
-            <p class="section-sub">Información técnica que respalda la toma de decisiones en tu proyecto.</p>
+            <p class="section-sub">Documentación e información técnica que respalda decisiones de diseño, construcción y gestión del riesgo.</p>
             <div class="deliverables-grid">
-                <div class="deliverable-item">
-                    <i class="fas fa-file-alt"></i>
-                    <span>Informe geotécnico</span>
-                </div>
-                <div class="deliverable-item">
-                    <i class="fas fa-flask"></i>
-                    <span>Resultados de laboratorio</span>
-                </div>
-                <div class="deliverable-item">
-                    <i class="fas fa-layer-group"></i>
-                    <span>Perfiles estratigráficos</span>
-                </div>
-                <div class="deliverable-item">
-                    <i class="fas fa-building"></i>
-                    <span>Recomendaciones de cimentación</span>
-                </div>
-                <div class="deliverable-item">
-                    <i class="fas fa-weight-hanging"></i>
-                    <span>Capacidad de carga</span>
-                </div>
-                <div class="deliverable-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Conclusiones y recomendaciones</span>
-                </div>
+                <div class="deliverable-item"><i class="fas fa-file-alt"></i><span>Informe geotécnico</span></div>
+                <div class="deliverable-item"><i class="fas fa-map"></i><span>Informe y cartografía geológica</span></div>
+                <div class="deliverable-item"><i class="fas fa-flask"></i><span>Resultados de laboratorio</span></div>
+                <div class="deliverable-item"><i class="fas fa-layer-group"></i><span>Perfiles estratigráficos</span></div>
+                <div class="deliverable-item"><i class="fas fa-building"></i><span>Recomendaciones de cimentación</span></div>
+                <div class="deliverable-item"><i class="fas fa-mountain"></i><span>Evaluación de estabilidad de taludes</span></div>
+                <div class="deliverable-item"><i class="fas fa-file-signature"></i><span>Dictámenes técnicos</span></div>
+                <div class="deliverable-item"><i class="fas fa-water"></i><span>Estudios hidrológicos e inundabilidad</span></div>
+                <div class="deliverable-item"><i class="fas fa-check-circle"></i><span>Conclusiones y recomendaciones</span></div>
             </div>
         </div>
     </section>
@@ -1372,28 +1433,28 @@
     <!-- TECNOLOGÍA Y EQUIPO -->
     <section class="tech-geo">
         <div class="container">
-            <h2 class="section-title">Tecnología y <span>equipo</span></h2>
-            <p class="section-sub">Contamos con herramientas y equipos especializados para cada fase del estudio.</p>
+            <h2 class="section-title">Tecnología y <span>capacidades</span></h2>
+            <p class="section-sub">Integramos distintas técnicas de exploración, medición y análisis según las necesidades del proyecto.</p>
             <div class="tech-grid">
                 <div class="tech-item">
                     <i class="fas fa-drill"></i>
-                    <h4>Exploración</h4>
-                    <p>Equipos de perforación y sondeos</p>
+                    <h4>Exploración geotécnica</h4>
+                    <p>SPT · BHQ · BNQ · Pozos a cielo abierto</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fas fa-microscope"></i>
-                    <h4>Laboratorio</h4>
-                    <p>Equipos para ensayos de suelos</p>
+                    <i class="fas fa-wave-square"></i>
+                    <h4>Geofísica</h4>
+                    <p>MASW · Sísmica · Resistividad eléctrica</p>
                 </div>
                 <div class="tech-item">
                     <i class="fas fa-chart-bar"></i>
                     <h4>Instrumentación</h4>
-                    <p>Monitoreo y medición en campo</p>
+                    <p>Piezómetros · Tubos de observación · Monitoreo</p>
                 </div>
                 <div class="tech-item">
                     <i class="fas fa-laptop"></i>
-                    <h4>Software de análisis</h4>
-                    <p>Herramientas de modelado geotécnico</p>
+                    <h4>Análisis técnico</h4>
+                    <p>Interpretación geotécnica, geológica y geomecánica</p>
                 </div>
             </div>
         </div>
@@ -1403,9 +1464,9 @@
     <section class="cta-geo" id="contacto">
         <div class="cta-bg"></div>
         <div class="container">
-            <h2>¿Necesitas conocer las <span>condiciones de tu terreno</span>?</h2>
-            <p>Cuéntanos sobre tu proyecto y nuestro equipo podrá orientarte sobre la solución geotécnica adecuada.</p>
-            <a href="#" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar estudio geotécnico →</a>
+            <h2>¿Necesitas entender las <span>condiciones de tu terreno</span>?</h2>
+            <p>Cuéntanos sobre tu proyecto y nuestro equipo podrá orientarte sobre el estudio geotécnico, geológico o geofísico más adecuado.</p>
+            <a href="#" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar estudio →</a>
             <div class="contact-links">
                 <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 <a href="#"><i class="fas fa-phone"></i> Teléfono</a>
